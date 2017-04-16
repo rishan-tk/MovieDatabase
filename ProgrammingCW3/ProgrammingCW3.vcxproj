@@ -111,6 +111,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Movie.h" />
+    <ClInclude Include="MovieDatabase.h" />
+    <ClInclude Include="Rating.h" />
+    <ClInclude Include="TimeStamp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Movie.cpp" />
+    <ClCompile Include="MovieDatabase.cpp" />
+    <ClCompile Include="Rating.cpp" />
+    <ClCompile Include="TimeStamp.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
