@@ -1,9 +1,12 @@
-#include "Rating.h"
+#include "Ratings.h"
 
 
 
 Rating::Rating()
 {
+
+	
+
 }
 
 
