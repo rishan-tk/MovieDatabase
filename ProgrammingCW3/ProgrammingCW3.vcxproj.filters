@@ -24,7 +24,13 @@
     <ClInclude Include="TimeStamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Ratings.h">
+    <ClInclude Include="Genre.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Rating.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RatingDatabase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,8 +47,25 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Ratings.cpp">
+    <ClCompile Include="Genre.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Rating.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RatingDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="movies.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="ratings.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="stufftodo.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

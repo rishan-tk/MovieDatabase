@@ -1,0 +1,21 @@
+Movie class
+-Sort in order of release year
+
+Movie DB class
+-Overload the stream i/o operators
+
+TimeCode class
+-Finish taking input
+
+
+Ratings class
+-Overload operators for stram based i/o and appropriate set of constructors and interface methods
+
+main class
+-Should initialise the movie database and ratings
+
+-Sort the movies into chronological order, oldest first newest last and display on console in same format
+-Display the third longest Film-Noir - extract a second db containing only Film-Noir then sort into decreasing order
+-Display 10th highest rated Sci-Fi film
+-Display the highest rated film
+-Display the film with the longest title
