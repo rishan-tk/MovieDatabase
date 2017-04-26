@@ -1,7 +1,16 @@
 #pragma once
 
-#include "Rating.h"
+#include "Ratings.h"
 #include "MovieDatabase.h"
+
+/*****************************************
+*				Legend                   *
+*________________________________________*
+*                                        *
+* rdb_ = belongs to rating database class*
+* _ before variables = private variable  *
+*                                        *
+*****************************************/
 
 class RatingDatabase
 {
@@ -19,16 +28,16 @@ private:
 	void rdb_updateRatings(MovieDatabase* mdb);
 
 
-	std::vector<Rating*> _rdb_listOfRatings;
+	std::vector<Ratings*> _rdb_listOfRatings;
 
 };
 
 //Inline Overloaded Operator functions
 inline std::istream& operator>>(std::istream& input, RatingDatabase& rdb) {
-	Rating tempRating;
+	Ratings tempRating;
 	//Loop through each line in the file
 	while (input >> tempRating)
-		rdb._rdb_listOfRatings.emplace_back(new Rating(tempRating));
+		rdb._rdb_listOfRatings.emplace_back(new Ratings(tempRating));
 	
 	return input;
 }

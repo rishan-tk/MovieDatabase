@@ -4,6 +4,15 @@
 
 #include "Movie.h"
 
+/*****************************************
+*				Legend                   *
+*________________________________________*
+*                                        *
+* mdb_ = belongs to movie database class *
+*  _ before variables = private variable *
+*                                        *
+*****************************************/
+
 //Stores a list of movies
 class MovieDatabase
 {
@@ -12,14 +21,23 @@ public:
 	~MovieDatabase();
 
 	void mdb_initialise(const std::string fileName);
+
 	void mdb_updateRatings(const std::string title, const uint16_t rating);
+
 	void mdb_calculateRatings();
+
+	void mdb_sortbyYear();
+
+	void mdb_DisplayNthLongestFilm(int n, GenreCodes genre);
+
+	void mdb_DisplayNthRatedFilm(int n, GenreCodes genre);
 
 	friend std::istream &operator>>(std::istream& input, MovieDatabase& mdb);
 	friend std::ostream &operator<<(std::ostream& output, const MovieDatabase& mdb);
 
 private:
-	void mdb_readFromFile(const std::string fileName);
+	void readFromFile(const std::string fileName);
+
 
 	std::map<std::string, Movie*> _mdb_listOfMovies;
 };

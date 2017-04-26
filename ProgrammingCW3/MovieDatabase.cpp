@@ -1,7 +1,12 @@
 #include <fstream>
 #include <iostream>
+#include <algorithm>
+
 
 #include "MovieDatabase.h"
+
+
+
 
 
 MovieDatabase::MovieDatabase()
@@ -17,7 +22,7 @@ MovieDatabase::~MovieDatabase(){
 void MovieDatabase::mdb_initialise(const std::string fileName){
 	//Check if string is empty
 	if (!fileName.empty())
-		mdb_readFromFile(fileName);
+		readFromFile(fileName);
 	else
 		std::cout << "Empty file name!" << std::endl;
 }
@@ -34,7 +39,42 @@ void MovieDatabase::mdb_calculateRatings(){
 		movie.second->m_calculateMeanRatings();
 }
 
-void MovieDatabase::mdb_readFromFile(const std::string fileName){
+void MovieDatabase::mdb_sortbyYear(){
+	std::vector<Movie*> listOfMovies;
+	for (auto movie : _mdb_listOfMovies)
+		listOfMovies.push_back(movie.second);
+
+	std::sort(listOfMovies.begin(), listOfMovies.end(), [&listOfMovies](Movie* a, Movie* b) {if (*a != *b) { return a->m_getReleaseYear() < b->m_getReleaseYear(); } else { return a->m_getTitle() < b->m_getTitle(); } });
+
+	for(Movie* movie : listOfMovies)
+		std::cout << *movie;
+}
+
+void MovieDatabase::mdb_DisplayNthLongestFilm(int n, GenreCodes genre){
+	std::vector<Movie*> listOfMovies;
+	for (auto movie : _mdb_listOfMovies) {
+		if (movie.second->m_getGenre().containsGenre(genre))
+			listOfMovies.push_back(movie.second);
+	}
+
+	std::sort(listOfMovies.begin(), listOfMovies.end(), [&listOfMovies](Movie* m1, Movie* m2) {return m1->m_getRunTime() > m2->m_getRunTime(); });
+
+	std::cout << *listOfMovies[n-1] << std::endl;
+}
+
+void MovieDatabase::mdb_DisplayNthRatedFilm(int n, GenreCodes genre) {
+	std::vector<Movie*> listOfMovies;
+	for (auto movie : _mdb_listOfMovies) {
+		if (movie.second->m_getGenre().containsGenre(genre))
+			listOfMovies.push_back(movie.second);
+	}
+
+	std::sort(listOfMovies.begin(), listOfMovies.end(), [&listOfMovies](Movie* m1, Movie* m2) {return m1->m_getMeanRating() > m2->m_getMeanRating(); });
+
+	std::cout << *listOfMovies[n - 1] << std::endl;
+}
+
+void MovieDatabase::readFromFile(const std::string fileName){
 	//Load the file into fstream
 	std::ifstream file(fileName);
 

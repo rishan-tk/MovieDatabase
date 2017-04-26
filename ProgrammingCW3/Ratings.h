@@ -2,20 +2,29 @@
 
 #include <vector>
 
-#include "TimeStamp.h"
+#include "TimeCode.h"
 
-class Rating
+/*****************************************
+*				Legend                   *
+*________________________________________*
+*                                        *
+*   r_ = belongs to rating class         *
+* _ before variables = private variable  *
+*                                        *
+*****************************************/
+
+class Ratings
 {
 public:
-	Rating();
-	~Rating();
+	Ratings();
+	~Ratings();
 
 	std::string r_getAuthorName() const;
 	std::string r_getMovieTitle() const;
 	std::uint16_t r_getUserRating() const;
 
-	friend std::istream& operator>>(std::istream& input, Rating& r);
-	friend std::ostream& operator<<(std::ostream& output, const Rating& r);
+	friend std::istream& operator>>(std::istream& input, Ratings& r);
+	friend std::ostream& operator<<(std::ostream& output, Ratings& r);
 
 private: 
 	TimeStamp _r_timeStamp;
@@ -26,12 +35,12 @@ private:
 };
 
 //Inline Accessor functions (variables not to be modified)
-inline std::string Rating::r_getAuthorName() const { return _r_authorName; }
-inline std::string Rating::r_getMovieTitle() const { return _r_movieTitle; }
-inline std::uint16_t Rating::r_getUserRating() const { return _r_userRating; }
+inline std::string Ratings::r_getAuthorName() const { return _r_authorName; }
+inline std::string Ratings::r_getMovieTitle() const { return _r_movieTitle; }
+inline std::uint16_t Ratings::r_getUserRating() const { return _r_userRating; }
 
 //Inline Overloaded Operator functions
-inline std::istream& operator>>(std::istream& input, Rating& r) {
+inline std::istream& operator>>(std::istream& input, Ratings& r) {
 
 	//Extract the time and date from the input 
 	input >> r._r_timeStamp;
@@ -66,7 +75,8 @@ inline std::istream& operator>>(std::istream& input, Rating& r) {
 	return input;
 }
 
-inline std::ostream& operator<<(std::ostream& output, const Rating& r) {
+//Rating not const incase we want to do casting on _r_timeStamp
+inline std::ostream& operator<<(std::ostream& output, Ratings& r) {
 	output << r._r_timeStamp << ",\"";
 	output << r._r_authorName << "\",\"";
 	output << r._r_movieTitle << "\",";

@@ -21,16 +21,16 @@
     <ClInclude Include="MovieDatabase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TimeStamp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Genre.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Rating.h">
+    <ClInclude Include="RatingDatabase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RatingDatabase.h">
+    <ClInclude Include="Ratings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeCode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -41,19 +41,16 @@
     <ClCompile Include="MovieDatabase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TimeStamp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Genre.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Rating.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RatingDatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ratings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeCode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
